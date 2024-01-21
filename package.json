@@ -1,0 +1,22 @@
+{
+  "name": "culture-power",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.3.2",
+    "expresss": "^0.0.0",
+    "mongoose": "^8.1.0"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^20.11.5",
+    "typescript": "^5.3.3"
+  }
+}
