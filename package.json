@@ -5,7 +5,6 @@
   "scripts": {
     "test": "vitest",
     "dev": "tsx watch src/index.ts"
-    
   },
   "author": "",
   "license": "ISC",
