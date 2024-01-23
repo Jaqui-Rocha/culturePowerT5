@@ -1,19 +1,21 @@
-// db.ts
-
-import mongoose ,{ connection, connect } from 'mongoose';
-
-import dotenv from 'dotenv';
-dotenv.config();
-
-const dbUrl = process.env.MONGODB_URI || 'mongodb://localhost:27017/seuBancoDeDados';
-
-mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true });
+import { connect, connection } from "mongoose" 
+import { env } from "./env"
 
 
 
-connection.on('error', console.error.bind(console, 'Erro na conexão com o MongoDB:'));
-db.once('open', () => {
-  console.log('Conectado ao MongoDB!');
-});
+async function connectDb() {
+  connection.on("error", (error) =>{
+    console.error("Db not connected!")
 
-export default mongoose;
+  });
+  try{
+    await connect(env.DATABASE_URL)
+    connection.on("open", () => {
+      console.log("Db Connected successfully!")
+    })
+  } catch(error){
+    console.error("Check db url!")
+  } 
+}
+
+export { connectDb }
