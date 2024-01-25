@@ -1,4 +1,5 @@
 import {Schema, InferSchemaType, Model, model, Types} from "mongoose"
+import { Product } from "../../product/model/productSchema"
 const userSchema= new Schema({
     name:{
         type: String,
@@ -21,9 +22,9 @@ const userSchema= new Schema({
     updateAt: Date,
     deleteAt: Date,
     jewelsAmount: Number,
-    Products:"",
-    FavoriteProducts:"",
-    Photo: String
+    products: Array<Product>,
+    favoriteProducts: Array<Product>
+   
 
 })
 
