@@ -1,5 +1,6 @@
 interface CreateProduct{
     name: string
+    password: string
     value: number
     amount: string
     description: string
@@ -11,6 +12,7 @@ interface CreateProduct{
 }
 export class CreateProductDTO{
     name: string
+    password: string
     value: number
     amount: string
     description: string
@@ -20,6 +22,7 @@ export class CreateProductDTO{
    
     constructor(productData: CreateProduct){
         this.name= productData.name
+        this.password= productData.password
         this.value= productData.value
         this.amount= productData.amount
         this.description= productData.description
