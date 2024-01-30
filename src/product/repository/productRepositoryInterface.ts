@@ -1,6 +1,6 @@
 import { Product } from "../model/productSchema";
 import { CreateProductDTO } from "../DTO/createProductDto";
-import { UpdateProductDTO } from "../DTO/updateProduct";
+import { UpdateProductDTO } from "../DTO/updateProductDto";
 export interface IProductRepository{
     getAll(): Promise<Array<Product>>
 

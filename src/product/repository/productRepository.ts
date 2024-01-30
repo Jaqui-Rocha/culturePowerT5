@@ -1,7 +1,7 @@
 import {Model, isValidObjectId} from "mongoose"
 import { Product } from "../model/productSchema"
 import { CreateProductDTO } from "../DTO/createProductDto"
-import {UpdateProductDTO} from "../../product/DTO/updateProduct"
+import {UpdateProductDTO} from "../DTO/updateProductDto"
 import { IProductRepository } from "./productRepositoryInterface"
 
 export class ProductRepository implements IProductRepository{
