@@ -3,7 +3,7 @@ import { UpdateProductDTO } from "../DTO/updateProductDto";
 import { Product } from "../model/productSchema";
 import { IProductRepository } from "../repository/productRepositoryInterface";
 import { IProductService } from "./productServiceInterface";
-import bcrypt from 'bcrypt'
+
 
 export class ProductService implements IProductService{
     constructor(private productRepository: IProductRepository){}
@@ -18,16 +18,6 @@ export class ProductService implements IProductService{
         return products
     }
 
-    async getByEmail(email: string): Promise<Product>{
-        const product = await this.productRepository.getByEmail(email)
-
-        if(!product){
-            throw new Error('Product not found.')
-        }
-
-        return product
-    }
-
     async getById(id: string): Promise<Product>{
         const product = await this.productRepository.getById(id)
 
@@ -39,7 +29,7 @@ export class ProductService implements IProductService{
     }
     
     async create(productData: CreateProductDTO): Promise<Product>{
-        productData.password = await bcrypt.hash(productData.password, 8)
+       
         const newProduct = await this.productRepository.create(productData)
 
         if(!newProduct){
