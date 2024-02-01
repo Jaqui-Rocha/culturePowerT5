@@ -10,12 +10,6 @@ export class ProductRepository implements IProductRepository{
         const products= await this.productSchema.find({deletedAt: null}).populate('Users')
         return products
     }
-    async getByEmail(email:string): Promise<Product | null>{
-        const product= await this.productSchema.findOne({
-            email: email, deletAt:null
-        }).populate('Users')
-        return product
-    }
     async getById(id:string): Promise <Product | null>{
         const product= await this.productSchema.findOne({_id:id, deleteAt:null})
         return product

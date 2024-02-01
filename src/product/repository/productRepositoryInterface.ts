@@ -4,8 +4,6 @@ import { UpdateProductDTO } from "../DTO/updateProductDto";
 export interface IProductRepository{
     getAll(): Promise<Array<Product>>
 
-    getByEmail(email: string): Promise<Product | null>
-
     getById(id: string): Promise<Product | null>
 
     create(userData: CreateProductDTO): Promise<Product | null>
