@@ -12,4 +12,4 @@ class UserFactory {
     }
 }
 
-export const userModule = UserFactory.getInstance()
+export const UserModule = UserFactory.getInstance()
