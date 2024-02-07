@@ -3,5 +3,5 @@ import { connectDb } from "./database/db";
 
 import {app} from "./server"
 dotenv.config()
-connectDb() // verificar erro
+connectDb() 
 app.listen(process.env.PORT, ()=> console.log("Db running!") )
