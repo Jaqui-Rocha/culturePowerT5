@@ -7,4 +7,5 @@ app.use(express.json())
 app.use(userRoutes)
 app.use(productRoutes)
 
+
 export {app}

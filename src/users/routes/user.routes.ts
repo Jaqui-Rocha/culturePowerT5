@@ -3,7 +3,7 @@ import { UserModule } from "../factory/userFactory";
 
 
 export const userRoutes= Router()
-userRoutes.get("/user",UserModule.getAll.bind(UserModule))
+userRoutes.get("/users",UserModule.getAll.bind(UserModule))
 userRoutes.get("/user/:id", UserModule.getById.bind(UserModule))
 userRoutes.get("/user/find", UserModule.getByEmail.bind(UserModule))
 userRoutes.post("/user", UserModule.create.bind(UserModule))

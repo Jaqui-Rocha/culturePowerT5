@@ -1,3 +1,4 @@
+import { Types } from "mongoose";
 import { CreateUserDTO } from "../DTO/createUserDto";
 import { UpdateUserDTO } from "../DTO/updateUserDto";
 import { User } from "../model/userSchema";

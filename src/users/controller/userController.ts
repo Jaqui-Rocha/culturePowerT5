@@ -2,6 +2,8 @@ import { Request, Response } from "express";
 import { IUserService } from "../service/userServiceInterface";
 import { createUserValidator } from "../utils/createUserValidator";
 import { IUserController } from "./userControllerInterface";
+import { ParamsDictionary } from "express-serve-static-core";
+import { ParsedQs } from "qs";
 
 export class UserController implements IUserController{
     constructor(private userService: IUserService){}
@@ -46,7 +48,7 @@ export class UserController implements IUserController{
             res.status(500).json(error)
         }
     }
-    
+ 
     async update(req: Request, res: Response): Promise<void>{
         try {
             const { id } = req.params

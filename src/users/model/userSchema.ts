@@ -16,7 +16,7 @@ const userSchema= new Schema({
     },
     photo:{
         type: String,
-        required: true
+       // required: true
     },
     creatAt: Date,
     updateAt: Date,
