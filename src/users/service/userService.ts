@@ -19,16 +19,7 @@ export class UserService implements IUserService{
         return users
     }
 
-    async getByEmail(email: string): Promise<User>{
-        const user = await this.userRepository.getByEmail(email)
-
-        if(!user){
-            throw new Error('User not found.')
-        }
-
-        return user
-    }
-
+ 
     async getById(id: string): Promise<User>{
         const user = await this.userRepository.getById(id)
 

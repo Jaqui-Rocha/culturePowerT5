@@ -5,6 +5,6 @@ export const createProductValidator = yup.object({
   value: yup.string().required('Value is required'),
   amount: yup.string().required('Amount is required'),
   description: yup.string().required('Description is required'),
-  photo: yup.string().required('Photo is required') 
+  photo: yup.string()
   
 });

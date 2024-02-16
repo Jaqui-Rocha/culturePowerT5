@@ -15,7 +15,7 @@ export class AuthController implements IAuthController{
       const token = await this.authService.login(body)
       res.status(200).json(token)
     } catch (error: any) {
-      res.status(500).json(error)
+      res.status(500).json({ message: error.message || 'Ocorreu um erro inesperado.' })
     }
   }
 }

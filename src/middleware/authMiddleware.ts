@@ -12,6 +12,8 @@ export class AuthMiddleware {
 
     try {
       jwt.verify(token, process.env.JWT_SECRET_KEY as string)
+      const payload = jwt.decode(token) as any
+      if(!payload) throw new Error("Invalid token")
 
     } catch (err) {
       return res.status(401).json({ message: "Invalid token" })

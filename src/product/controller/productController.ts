@@ -11,7 +11,7 @@ export class ProductController implements IProductController{
             const users = await this.productService.getAll()
             res.status(200).json(users)
         } catch (error: any) {
-            res.status(500).json(error)
+            res.status(500).json({ message: error.message || 'Ocorreu um erro inesperado.' })
         }
     }
 
@@ -21,7 +21,7 @@ export class ProductController implements IProductController{
             const user = await this.productService.getById(id)
             res.status(200).json(user)
         } catch (error: any) {
-            res.status(500).json(error)
+            res.status(500).json({ message: error.message || 'Ocorreu um erro inesperado.' })
         }
     }
 
@@ -33,7 +33,7 @@ export class ProductController implements IProductController{
             const product = await this.productService.create(body)
             res.status(201).json(product)
         } catch (error: any) {
-            res.status(500).json(error)
+            res.status(500).json({ message: error.message || 'Ocorreu um erro inesperado.' })
         }
     }
     
@@ -45,7 +45,7 @@ export class ProductController implements IProductController{
             const updatedProduct = await this.productService.update(id, body)
             res.status(200).json(updatedProduct)
         } catch (error: any) {
-            res.status(500).json(error)
+            res.status(500).json({ message: error.message || 'Ocorreu um erro inesperado.' })
         }
     }
     async softDelete(req: Request, res: Response): Promise<void>{
@@ -54,7 +54,7 @@ export class ProductController implements IProductController{
             const deletedProduct = await this.productService.softDelete(id)
             res.status(200).json(deletedProduct)
         } catch (error: any) {
-            res.status(500).json(error)
+            res.status(500).json({ message: error.message || 'Ocorreu um erro inesperado.' })
         }
     }
 }

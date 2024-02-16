@@ -4,7 +4,7 @@ import { ProductModule } from "../factory/productFactory";
 
 export const productRoutes= Router()
 
-productRoutes.get("/product",ProductModule.getAll.bind(ProductModule))
+productRoutes.get("/",ProductModule.getAll.bind(ProductModule))
 
 productRoutes.get("/product/:id", ProductModule.getById.bind(ProductModule))
 

@@ -7,14 +7,8 @@ import { IUserRepository } from "./userRepositoryInterface"
 export class UserRepository implements IUserRepository{
     constructor (private userSchema: Model <User>){}
     async getAll(): Promise <User[]>{
-        const users= await this.userSchema.find({deletedAt: null}).populate('Products')
+        const users= await this.userSchema.find({deletedAt: null}).populate('products')
         return users
-    }
-    async getByEmail(email:string): Promise<User | null>{
-        const user= await this.userSchema.findOne({
-            email: email, deletAt:null
-        }).populate('Products')
-        return user
     }
     async getById(id:string): Promise <User | null>{
         const user= await this.userSchema.findOne({_id:id, deleteAt:null})
