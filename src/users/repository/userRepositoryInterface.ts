@@ -5,6 +5,8 @@ import { UpdateUserDTO } from "../DTO/updateUserDto";
 export interface IUserRepository{
     getAll(): Promise<Array<User>>
 
+    getByEmail(email: string): Promise<User | null>
+
     getById(id: string): Promise<User | null>
 
     create(userData: CreateUserDTO): Promise<User | null>
