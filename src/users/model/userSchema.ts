@@ -1,5 +1,5 @@
 import {Schema, InferSchemaType, Model, model, Types} from "mongoose"
-import { Product } from "../../product/model/productSchema"
+import { role } from "../utils/roles"
 const userSchema= new Schema({
     name:{
         type: String,
@@ -14,19 +14,26 @@ const userSchema= new Schema({
         type: String,
         required: true
     },
-    photo:{
+    photo: String,
+    role: {
         type: String,
-       // required: true
+        enum: Object.values(role)      
     },
-    creatAt: Date,
-    updateAt: Date,
-    deleteAt: Date,
+    deleteAt:{
+        type: Date,
+        default: null
+    },
     jewelsAmount: Number,
-    products: Array<Product>,
-    favoriteProducts: Array<Product>
-   
+    products: [{
+        type: Types.ObjectId,
+        ref: 'Product'
+    }],
+    favoriteProducts: [{
+        type: Types.ObjectId,
+        ref: 'Product'
+    }]
 
-})
+}, { timestamps: true })
 
 export type User = InferSchemaType<typeof userSchema>
 

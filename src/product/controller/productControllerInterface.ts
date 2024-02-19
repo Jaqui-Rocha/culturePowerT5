@@ -10,4 +10,6 @@ export interface IProductController {
     update(req: Request, res: Response): Promise<void>
 
     softDelete(req: Request, res: Response): Promise<void>
+
+    redeem(req: Request, res: Response): Promise<void>;
 }

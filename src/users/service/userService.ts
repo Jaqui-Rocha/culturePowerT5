@@ -43,7 +43,7 @@ export class UserService implements IUserService{
 
     async update(id: string, newUserData: UpdateUserDTO): Promise<User>{
         const user = await this.userRepository.getById(id)
-
+        
         if(!user){
             throw new Error('User not found.')
         }
@@ -59,7 +59,6 @@ export class UserService implements IUserService{
 
     async softDelete(id: string): Promise<User>{
         const user = await this.userRepository.getById(id)
-
         if(!user){
             throw new Error("User not found.")
         }

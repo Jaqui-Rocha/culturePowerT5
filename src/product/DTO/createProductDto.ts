@@ -1,8 +1,10 @@
+
+
 interface CreateProduct{
+    prodId: string
     name: string
-    password: string
     value: number
-    amount: string
+    jewelsAmount: number
     description: string
     photo: string
     creatAt: Date
@@ -11,18 +13,20 @@ interface CreateProduct{
 
 }
 export class CreateProductDTO{
+    prodId: string
     name: string
     value: number
-    amount: string
+    jewelsAmount: number
     description: string
     photo: string
     creatAt: Date
     updateAt: Date
    
     constructor(productData: CreateProduct){
+        this.prodId= productData.prodId
         this.name= productData.name
         this.value= productData.value
-        this.amount= productData.amount
+        this.jewelsAmount= productData.jewelsAmount
         this.description= productData.description
         this.photo= productData.photo
         this.creatAt= productData.creatAt

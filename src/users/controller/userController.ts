@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { IUserService } from "../service/userServiceInterface";
 import { createUserValidator } from "../utils/createUserValidator";
 import { IUserController } from "./userControllerInterface";
-
+//import { adminMiddleware } from "../../middleware/adminMiddleware";
 
 export class UserController implements IUserController{
     constructor(private userService: IUserService){}
@@ -16,15 +16,15 @@ export class UserController implements IUserController{
         }
     }
 
-    async getByEmail(req: Request, res: Response): Promise<void>{
-        try {
-            const { email } = req.query
-            const user = await this.userService.getByEmail(email as string)
-            res.status(200).json(user)
-        } catch (error: any) {
-            res.status(500).json({ message: error.message || 'Ocorreu um erro inesperado.' })
-        }
-    }
+    // async getByEmail(req: Request, res: Response): Promise<void>{
+    //     try {
+    //         const { email } = req.query
+    //         const user = await this.userService.getByEmail(email as string)
+    //         res.status(200).json(user)
+    //     } catch (error: any) {
+    //         res.status(500).json({ message: error.message || 'Ocorreu um erro inesperado.' })
+    //     }
+    // }
 
     async getById(req: Request, res: Response): Promise<void>{
         try {
@@ -62,8 +62,12 @@ export class UserController implements IUserController{
     async softDelete(req: Request, res: Response): Promise<void>{
         try {
             const { id } = req.params
+            //const {role} = req.body 
+            
             const deletedUser = await this.userService.softDelete(id)
+                       
             res.status(200).json(deletedUser)
+        
         } catch (error: any) {
             res.status(500).json({ message: error.message || 'Ocorreu um erro inesperado.' })
         }

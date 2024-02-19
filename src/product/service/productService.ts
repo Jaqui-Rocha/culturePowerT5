@@ -18,8 +18,8 @@ export class ProductService implements IProductService{
         return products
     }
 
-    async getById(id: string): Promise<Product>{
-        const product = await this.productRepository.getById(id)
+    async getById(prodId: string): Promise<Product>{
+        const product = await this.productRepository.getById(prodId)
 
         if(!product){
             throw new Error('Product not found.')
@@ -39,14 +39,14 @@ export class ProductService implements IProductService{
         return newProduct
     }
 
-    async update(id: string, newProductData: UpdateProductDTO): Promise<Product>{
-        const product = await this.productRepository.getById(id)
+    async update(prodId: string, newProductData: UpdateProductDTO): Promise<Product>{
+        const product = await this.productRepository.getById(prodId)
 
         if(!product){
             throw new Error('Product not found.')
         }
 
-        const updatedProduct = await this.productRepository.update(id, newProductData)
+        const updatedProduct = await this.productRepository.update(prodId, newProductData)
 
         if(!updatedProduct){
             throw new Error('Cannot update roduct.')
@@ -55,14 +55,14 @@ export class ProductService implements IProductService{
         return product
     }
 
-    async softDelete(id: string): Promise<Product>{
-        const product = await this.productRepository.getById(id)
+    async softDelete(prodId: string): Promise<Product>{
+        const product = await this.productRepository.getById(prodId)
 
         if(!product){
             throw new Error("Product not found.")
         }
 
-        const deletedProduct = await this.productRepository.softDelete(id)
+        const deletedProduct = await this.productRepository.softDelete(prodId)
 
         if(!deletedProduct){
             throw new Error("Cannot delete product.")

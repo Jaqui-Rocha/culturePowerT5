@@ -5,6 +5,7 @@ interface UpdateUser {
     email:string,
     password: string,
     photo: string,
+    role?: "ADMIN" | "USER",
     creatAt: Date,
     updateAt: Date,
     jewelsAmount: number,
@@ -18,6 +19,7 @@ export class UpdateUserDTO{
     email:string
     password: string
     photo: string
+    role?: string
     creatAt: Date
     updateAt: Date
     jewelsAmount: number
@@ -28,6 +30,7 @@ export class UpdateUserDTO{
         this.email= userData.email
         this.password= userData.password
         this.photo= userData.photo
+        this.role= userData.role
         this.creatAt= userData.creatAt
         this.updateAt= userData.updateAt
         this.jewelsAmount= userData.jewelsAmount
